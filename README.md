@@ -22,5 +22,28 @@ streamlit run main.py
 4. اضبط نظام الاستدعاء لضم مقتطفات من القوانين ذات الصلة إلى prompt قبل طلب الإجابة من النموذج.
 
 هل تريد أن أتابع وأضيف مجلد `data/` مع مثال مجموعات بيانات وقالب فهرسة (FAISS)؟
+
+---
+
+FAISS index - تعليمات سريعة (تجريبي)
+
+1) ضع ملفات النصوص القانونية داخل مجلد `data/` بصيغة `.txt`.
+2) قم بتثبيت المتطلبات: `pip install -r requirements.txt` (يشمل `sentence-transformers` و`faiss-cpu`).
+3) أنشئ الفهرس عبر:
+
+```bash
+python scripts/index_faiss.py --data-dir data --index-file faiss.index --meta-file metadata.json
+```
+
+4) يمكنك اختبار الاسترجاع سريعاً عبر REPL:
+
+```python
+from retrieval import Retriever
+r = Retriever('faiss.index', 'metadata.json')
+print(r.query('استعلامك هنا', top_k=3))
+```
+
+5) لتضمين نتائج الاسترجاع في الـ prompt قبل استدعاء النموذج: اقرأ المصادر وأدرج مقتطفات قصيرة (chunks) أعلى الـ prompt.
+
 # adx
 adx

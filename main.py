@@ -174,4 +174,48 @@ with st.expander("🧾 كيف أدرّب المنصة على قوانين دول
         """
     )
 
+# --- رفع مستندات وفهرسة ---
+with st.expander("📁 رفع مستندات قانونية (Upload)"):
+    st.markdown("رفع ملفات نصية (`.txt`) للقوانين لتضمينها في الفهرس.")
+    uploaded = st.file_uploader("ارفع ملفات نصية للقوانين (يمكن رفع متعدد)", accept_multiple_files=True, type=['txt'])
+    if uploaded:
+        for f in uploaded:
+            save_path = os.path.join('data', f.name)
+            # إذا كان الملف موجودًا، نضيف لاحقة لتجنب الاستبدال العرضي
+            base, ext = os.path.splitext(save_path)
+            counter = 1
+            while os.path.exists(save_path):
+                save_path = f"{base}-{counter}{ext}"
+                counter += 1
+            with open(save_path, 'wb') as out:
+                out.write(f.getbuffer())
+            st.success(f'✔️ تم حفظ الملف: {os.path.basename(save_path)}')
+
+    if st.button("🔁 فهرسة الملفات المحدثة (FAISS)"):
+        with st.spinner("جاري فهرسة الملفات — قد يستغرق بضع دقائق..."):
+            try:
+                import subprocess, sys
+                cmd = [sys.executable, 'scripts/index_faiss.py', '--data-dir', 'data', '--index-file', 'faiss.index', '--meta-file', 'metadata.json']
+                proc = subprocess.run(cmd, check=True, capture_output=True, text=True)
+                st.success("✅ تم إنشاء/تحديث الفهرس بنجاح.")
+                if proc.stdout:
+                    st.text(proc.stdout)
+            except Exception as e:
+                st.error(f"خطأ أثناء الفهرسة: {e}")
+
+    st.markdown("**اختبار استرجاع سريع (بعد الفهرسة):**")
+    test_q = st.text_input("اكتب استعلامًا لاختبار الاسترجاع:")
+    if st.button("🔍 استرجع أمثلة ذات صلة"):
+        try:
+            from retrieval import Retriever
+            r = Retriever('faiss.index', 'metadata.json')
+            res = r.query(test_q, top_k=3)
+            if res:
+                for i, ritem in enumerate(res, 1):
+                    st.write(f"{i}. المصدر: {ritem['source']} — chunk: {ritem['chunk']} — score: {ritem['score']:.3f}")
+            else:
+                st.info("لا توجد نتائج أو الفهرس فارغ — يرجى تشغيل فهرسة الملفات أولاً.")
+        except Exception as e:
+            st.error(f"خطأ في الاسترجاع: {e}")
+
 st.caption("ملاحظة: هذا نظام مساعدة قانونية آلي — لا يعوّض المحامي المرخّص.")
