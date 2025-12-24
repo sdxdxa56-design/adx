@@ -10,7 +10,7 @@ import pycountry
 import os
 
 # إعدادات الصفحة
-st.set_page_config(page_title="المُحكم الرقمي", layout="centered")
+st.set_page_config(page_title="محامي بين يديك", layout="centered")
 
 # التنسيق العربي والخط
 st.markdown("""
