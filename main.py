@@ -1,6 +1,6 @@
 import streamlit as st
 from groq import Groq
-
+st.markdown('<meta name="google-site-verification" content="googlec310d9a33bd4047c" />', unsafe_allow_html=True)
 # إعدادات الصفحة
 st.set_page_config(page_title="دليل القضائيه العالميه و الشخصيه محامي بين يديك", layout="centered")
 
