@@ -2,7 +2,7 @@ import streamlit as st
 from groq import Groq
 
 # إعدادات الصفحة
-st.set_page_config(page_title="المُحكم الرقمي", layout="centered")
+st.set_page_config(page_title="دليل القضائيه العالميه و الشخصيه محامي بين يديك", layout="centered")
 
 import streamlit as st
 from groq import Groq
