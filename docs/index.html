@@ -1,29 +1,52 @@
 <!doctype html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta name="google-site-verification" content="o2ebRtLuHyZGkr6Pg" />
-    
     <meta name="google-site-verification" content="c310d9a33bd4047c" />
     
-    <meta name="description" content="منصة adx - العرض الرسمي لمنصة المُحكم الرقمي لإدارة المشاريع والتحكم التقني">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
 
-    <title>adx — منصة المُحكم الرقمي (عرض)</title>
-    
+    <title>منصة adx | المُحكم الرقمي للتحكم التقني الذكي</title>
+    <meta name="description" content="منصة adx هي النظام الرائد للمُحكم الرقمي والتحكم التقني الذكي. اكتشف حلولنا المتقدمة في إدارة البيانات والمشاريع بتقنيات الذكاء الاصطناعي.">
+    <meta name="keywords" content="adx, منصة adx, المحكم الرقمي, التحكم الرقمي, تحكم تقني, streamlit adx">
+    <meta name="author" content="adx design">
+
     <style>
-      body { font-family: Arial, Helvetica, sans-serif; direction: rtl; text-align: right; margin: 20px; }
-      iframe { width: 100%; height: 85vh; border: 2px solid #f0f0f0; border-radius: 8px; }
-      h1 { color: #333; }
-      a { color: #ff4b4b; text-decoration: none; font-weight: bold; }
+      body { 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        background-color: #f8f9fa; 
+        display: flex; 
+        flex-direction: column; 
+        height: 100vh;
+      }
+      header {
+        background-color: #ffffff;
+        padding: 10px 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      h1 { font-size: 1.2rem; color: #333; margin: 0; }
+      .direct-link { color: #ff4b4b; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+      iframe { 
+        flex-grow: 1; 
+        width: 100%; 
+        border: none; 
+      }
     </style>
   </head>
   <body>
-    <h1>adx — منصة المُحكم الرقمي</h1>
-    <p>عرض التطبيق المُستضاف على Streamlit. إن لم يعمل العرض، افتح التطبيق مباشرة: 
-       <a href="https://admiku.streamlit.app/">اضغط هنا للانتقال للمنصة</a>
-    </p>
+    <header>
+      <h1>منصة adx — المُحكم الرقمي</h1>
+      <a href="https://admiku.streamlit.app/" class="direct-link">فتح المنصة مباشرة 🔗</a>
+    </header>
     
     <iframe src="https://admiku.streamlit.app/" title="adx Streamlit app"></iframe>
   </body>
