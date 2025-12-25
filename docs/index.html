@@ -9,17 +9,48 @@
     
     <link rel="icon" type="image/png" href="logo.png">
 
-    <title>منصة adx | المُحكم الرقمي والتحكم التقني الذكي</title>
-    <meta name="description" content="منصة adx هي النظام الرائد للمُحكم الرقمي والتحكم التقني الذكي، توفر حلولاً متقدمة لإدارة البيانات والمشاريع.">
-    <meta name="keywords" content="adx, منصة adx, المحكم الرقمي, التحكم الرقمي">
+    <title>منصة adx | المُحكم الرقمي</title>
+    <meta name="description" content="منصة adx هي النظام الرائد للمُحكم الرقمي والتحكم التقني الذكي.">
 
     <style>
-      /* كود لجعل تطبيقك يملأ الشاشة بالكامل بشكل احترافي */
-      body { margin: 0; padding: 0; overflow: hidden; background-color: #ffffff; }
-      iframe { width: 100vw; height: 100vh; border: none; }
+      body { 
+        font-family: sans-serif; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        height: 100vh; 
+        margin: 0; 
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      .container { padding: 20px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+      .btn { 
+        display: inline-block; 
+        margin-top: 20px; 
+        padding: 15px 30px; 
+        background-color: #ff4b4b; 
+        color: white; 
+        text-decoration: none; 
+        border-radius: 8px; 
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      img { width: 100px; margin-bottom: 10px; }
     </style>
   </head>
   <body>
-    <iframe src="https://admiku.streamlit.app/"></iframe>
+    <div class="container">
+      <img src="logo.png" alt="adx logo">
+      <h1>مرحباً بك في منصة adx</h1>
+      <p>يتم الآن تحويلك للمنصة الذكية...</p>
+      <a href="https://admiku.streamlit.app/" class="btn">دخول المنصة الآن</a>
+    </div>
+
+    <script>
+      setTimeout(function(){
+        window.location.href = "https://admiku.streamlit.app/";
+      }, 2000);
+    </script>
   </body>
 </html>
