@@ -1,5 +1,7 @@
 streamlit
 groq
+openai
+google-generativeai
 pycountry
 sentence-transformers
 faiss-cpu
