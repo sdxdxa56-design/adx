@@ -1,24 +1,13 @@
 import streamlit as st
-import streamlit.components.v1 as components
+from groq import Groq
+st.markdown('<meta name="google-site-verification" content="googlec310d9a33bd4047c" />', unsafe_allow_html=True)
+# إعدادات الصفحة
+st.set_page_config(page_title="دليل القضائيه العالميه و الشخصيه محامي بين يديك", layout="centered")
+
+import streamlit as st
 from groq import Groq
 import pycountry
 import os
-
-# Google Analytics (GA4) Measurement ID
-GA_ID = "G-XVLFZ7M4WX"
-components.html(f"""
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){{dataLayer.push(arguments);}}
-gtag('js', new Date());
-gtag('config', '{GA_ID}');
-</script>
-""", height=0)
-
-# Add Google Search Console meta verification in-page (may not be read if not injected into <head>)
-st.markdown('<meta name="google-site-verification" content="c310d9a33bd4047c" />', unsafe_allow_html=True)
 
 # إعدادات الصفحة
 st.set_page_config(page_title="محامي بين يديك", layout="centered")
